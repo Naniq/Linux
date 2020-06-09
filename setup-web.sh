@@ -47,7 +47,7 @@ chmod 700 /etc/ssl/private
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/borrecloudservice.key -out /etc/ssl/certs/borrecloudservice.crt -subj "/C=DK/ST=Ringsted/L=Ringsted/O=Borre Cloud Service/OU=IT Department/CN=borrecloudservice.dk"
 
 #update ssl information
-cp ~/ZBCLinux/ssl.conf /etc/httpd/conf.d/
+cp ~/ZBCLinux/ConfigFiles/ssl.conf /etc/httpd/conf.d/
 chcon system_u:object_r:httpd_config_t:s0 /etc/httpd/conf.d/ssl.conf
 #Install Wordpress
 wget http://wordpress.org/latest.tar.gz
@@ -61,8 +61,8 @@ mkdir /var/www/borrecloudservice.dk/wp-content/uploads
 mkdir /var/www/extraborrecloudservice.dk/wp-content/uploads
 mkdir /var/www/borrecloudservice.dk/log
 mkdir /var/www/extraborrecloudservice.dk/log
-cp ~/ZBCLinux/wp-config.php /var/www/borrecloudservice.dk/
-cp ~/ZBCLinux/wp-config.php /var/www/extraborrecloudservice.dk/
+cp ~/ZBCLinux/ConfigFiles/wp-config.php /var/www/borrecloudservice.dk/
+cp ~/ZBCLinux/ConfigFIles/wp-config.php /var/www/extraborrecloudservice.dk/
 chcon unconfined_u:object_r:httpd_sys_content_t:s0 /var/www/borrecloudservice.dk/wp-config.php
 chcon unconfined_u:object_r:httpd_sys_content_t:s0 /var/www/extraborrecloudservice.dk/wp-config.php
 sed -i 's/wordpress_borrecloudservice_dk/wordpress_extraborrecloudservice_dk/g' /var/www/extraborrecloudservice.dk/wp-config.php

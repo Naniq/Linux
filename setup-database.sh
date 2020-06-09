@@ -34,7 +34,7 @@ y
 EOF
 
 #Create hidden credential files for mysql (Will allow user to login without using passsword mysql -u root)
-cp ~/ZBCLinux/.my.cnf ~/
+cp ~/ZBCLinux/ConfigFiles/.my.cnf ~/
 
 #Create wordpress database + user
 mysql -u root <<"EOF"
